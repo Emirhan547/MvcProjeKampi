@@ -25,6 +25,12 @@ namespace MvcProjeKampi.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+
+        }
+        [AllowAnonymous]
+        public ActionResult HomePage ()
+        {
+            return View();
         }
     }
 }
