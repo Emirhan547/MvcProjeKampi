@@ -16,7 +16,7 @@ namespace MvcProjeKampi.Controllers
         // GET: Message
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator messagevalidator = new MessageValidator();
-        [Authorize]
+        
         public ActionResult Inbox(string p)
         {
             var messagelist = messageManager.GetListInbox(p ); 
@@ -59,7 +59,7 @@ namespace MvcProjeKampi.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            return View();
+            return View(p);
             
         }
     }

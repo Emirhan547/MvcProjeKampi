@@ -17,14 +17,20 @@ namespace MvcProjeKampi.Controllers
         {
             return View();
         }
-         
+
+        [HttpGet]
+        public ActionResult GetAllContent()
+        {
+            var contentvalues = cm.GetList("");
+
+            return View(contentvalues);
+        }
+        [HttpPost]
         public ActionResult GetAllContent(string p)
         {
-            
-            var values = cm.GetList(p);
-            
-            //var values = c.Contents.ToList();
-            return View(values);
+            var contentvalues = cm.GetList(p);
+
+            return View(contentvalues);
         }
         public ActionResult ContentByHeading(int id )
         {

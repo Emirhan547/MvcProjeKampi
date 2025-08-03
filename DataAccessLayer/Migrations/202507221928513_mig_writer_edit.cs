@@ -7,7 +7,7 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.Writers", "WriterAbout", c => c.String(maxLength: 100));
+            AddColumn("dbo.Writers", "WriterAbout", c => c.String(maxLength: 200));
             AlterColumn("dbo.Writers", "WriterMail", c => c.String(maxLength: 200));
             AlterColumn("dbo.Writers", "WriterPassword", c => c.String(maxLength: 200));
         }

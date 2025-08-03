@@ -19,6 +19,10 @@ namespace EntityLayer.Concrete
         public string Subject { get; set; }
         public string MessageContent { get; set; }
         public DateTime MessageDate { get; set; }
+        public bool IsDraft { get; set; }
+        public bool IsTrash { get; set; }
+        public bool IsSpam { get; set; }
+
 
     }
 }

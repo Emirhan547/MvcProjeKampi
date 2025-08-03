@@ -13,7 +13,7 @@ namespace EntityLayer.Concrete
         public int ImageID { get; set; }
         [StringLength(100)]
         public string ImageName { get; set; }
-        [StringLength(250)]
+        [StringLength(500)]
         public string ImagePath { get; set; }
     }
 }

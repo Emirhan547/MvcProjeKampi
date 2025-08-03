@@ -11,18 +11,17 @@ namespace MvcProjeKampi.Controllers
 {
     public class ContactController : Controller
     {
-        // GET: Contact
         ContactManager cm = new ContactManager(new EfContactDal());
-        ContactValidator cv = new ContactValidator();
+        
         public ActionResult Index()
         {
             var contactvalues = cm.GetList();
             return View(contactvalues);
         }
-        public ActionResult GetContactDeatails(int id)
+        public ActionResult GetContactDetails(int id)
         {
-            var contactvalue = cm.GetById(id);
-            return View(contactvalue);
+            var contactvalues = cm.GetById(id);
+            return View(contactvalues);
         }
         public PartialViewResult MessageListMenu()
         {

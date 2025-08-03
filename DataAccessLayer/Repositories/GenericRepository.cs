@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class, new()
+    public class GenericRepository<T> : IRepository<T> where T : class
     {
         Context c = new Context();
         DbSet<T> _object;

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -9,15 +8,19 @@
     <title>Mvc Proje Kampı</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-20/style.css">
-
+    <style>
+       
+        
+    </style>
 </head>
-<body class="img js-fullheight" style="background-image: url(/AdminLTE-3.0.4/login-20/bg.jpg); ">
+<body class="img js-fullheight" style="background-image: url(/AdminLTE-3.0.4/login-20/bg.jpg);">
+
+    <div id="registerWriterOverlay"></div>
+    <div id="registerWriterContainer"></div>
+
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -28,14 +31,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <h3 class="mb-4 text-center">Bir Hesabın Var mı??</h3>
+                        <h3 class="mb-4 text-center">Bir Hesabın Var mı?</h3>
                         @using (Html.BeginForm("WriterLogin", "Login", FormMethod.Post))
                         {
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Mail Adresin" required>
+                                <input type="text" class="form-control" name="WriterMail" placeholder="Mail Adresi" required>
                             </div>
                             <div class="form-group">
-                                <input id="password-field" type="password" class="form-control" placeholder="******" required>
+                                <input id="password-field" type="password" name="WriterPassword" class="form-control" placeholder="Şifre" required>
                                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
@@ -44,7 +47,7 @@
                             <div class="form-group d-md-flex">
                                 <div class="w-50">
                                     <label class="checkbox-wrap checkbox-primary">
-                                         Beni Hatırla
+                                        Beni Hatırla
                                         <input type="checkbox" checked>
                                         <span class="checkmark"></span>
                                     </label>
@@ -54,6 +57,17 @@
                                 </div>
                             </div>
                         }
+
+                        <!-- Misafir Girişi Butonu -->
+                        <div class="form-group">
+                            <a href="/Default/Headings/" class="form-control btn btn-secondary submit px-3">Misafir Girişi</a>
+                        </div>
+                        <a href="/Login/RegisterWriter" class="form-control btn btn-secondary submit px-3">Kayıt Ol</a>
+                        <br /><br />
+                        <a href="/Login/Index/" class="form-control btn btn-secondary submit px-3">Yönetici Girişi</a>
+
+
+
                         <p class="w-100 text-center">&mdash; Veya Sosyal Medya ile Giriş Yapın &mdash;</p>
                         <div class="social d-flex text-center">
                             <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
@@ -70,5 +84,6 @@
     <script src="~/AdminLTE-3.0.4/login-20/bootstrap.min.js"></script>
     <script src="~/AdminLTE-3.0.4/login-20/main.js"></script>
 
+    
 </body>
 </html>

@@ -10,7 +10,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
-using System.Security.Cryptography.X509Certificates;
+
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 
 namespace MvcProjeKampi.Controllers
@@ -19,7 +20,7 @@ namespace MvcProjeKampi.Controllers
     {
 
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
-        [Authorize(Roles = "B")]
+        [Authorize(Roles = "A")]
         public ActionResult Index()
         {
             var categoryvalues = cm.GetList();
@@ -28,14 +29,14 @@ namespace MvcProjeKampi.Controllers
         [HttpGet]
         public ActionResult AddCategory()
         {
-            return View(); // veya dosya neredeyse o tam yol
+            return View(); 
         }
 
         [HttpPost]
         public ActionResult AddCategory(Category p)
         {
-            CategoryValidatior categoryvalidator = new CategoryValidatior();
-            FluentValidation.Results.ValidationResult result = categoryvalidator.Validate(p);
+            CategoryValidator categoryvalidator = new CategoryValidator();
+            ValidationResult result = categoryvalidator.Validate(p);
             if (result.IsValid)
             {
                 cm.CategoryAdd(p);
@@ -47,16 +48,27 @@ namespace MvcProjeKampi.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(); // yine aynı dosyaya dönmeli
+                return View(); 
             }
 
         }
         public ActionResult DeleteCategory(int id)
         {
-            var categoryvalue = cm.GetById(id);
-            cm.CategoryDelete(categoryvalue);
+            var categoryValue = cm.GetById(id);
+
+            if (categoryValue != null)
+            {
+                cm.CategoryDelete(categoryValue);
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Kategori bulunamadı veya zaten silinmiş.";
+                // İstersen hata logla da buraya
+            }
+
             return RedirectToAction("Index");
         }
+
         [HttpGet]   
         public ActionResult EditCategory(int id)
         { 

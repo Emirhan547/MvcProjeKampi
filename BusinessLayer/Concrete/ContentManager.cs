@@ -15,7 +15,7 @@ namespace BusinessLayer.Concrete
 
         public ContentManager(IContentDal contentDal)
         {
-            _contentDal = _contentDal;
+            _contentDal = contentDal;
         }
 
         public void ContentAdd(Content content)
@@ -23,19 +23,19 @@ namespace BusinessLayer.Concrete
             _contentDal.Insert(content);
         }
 
-        public void ContentDelete(Content Content)
+        public void ContentDelete(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Delete(content);
         }
 
-        public void ContentUpdate(Content Content)
+        public void ContentUpdate(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Update(content);
         }
 
         public Content GetById(int id)
         {
-            throw new NotImplementedException();
+            return _contentDal.Get(x => x.ContentID == id);
         }
 
         public List<Content> GetList(string p)

@@ -14,7 +14,7 @@ namespace MvcProjeKampi.Controllers
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterDal());
-        WriterValidator writervalidator = new WriterValidator();
+        WriterValidator writerValidator = new WriterValidator();
         // GET: Writer
         public ActionResult Index()
         {
@@ -30,7 +30,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult AddWriter(Writer p)
         {
             
-            ValidationResult result=writervalidator.Validate(p);
+            ValidationResult result=writerValidator.Validate(p);
             if(result.IsValid)
             {
                 wm.WriterAdd(p);
@@ -54,7 +54,7 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult EditWriter(Writer p)
         {
-            ValidationResult result = writervalidator.Validate(p);
+            ValidationResult result = writerValidator.Validate(p);
             if (result.IsValid)
             {
                 wm.WriterUpdate(p);

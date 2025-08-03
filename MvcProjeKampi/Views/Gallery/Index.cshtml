@@ -6,11 +6,6 @@
 }
 
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,12 +34,7 @@
                 <div class="col-sm-6">
                     <h1>Sözlük Galerisi</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Gallery</li>
-                    </ol>
-                </div>
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -52,33 +42,34 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                @foreach (var item in Model) { 
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
                             <div class="card-title">
-                                Ekko Lightbox
+
                             </div>
                         </div>
+
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-2">
-                                    <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery">
-                                        <img src="@item.ImagePath" class="img-fluid mb-2" alt="white sample" />
-                                    </a>
-                                </div>
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-sm-2">
+                                        <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery">
+                                            <img src="@item.ImagePath" class="img-fluid mb-2" alt="white sample" />
+                                        </a>
+                                    </div>
                                 }
-                               
+
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-    <!-- /.content-wrapper -->
-    
+
     <!-- jQuery -->
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -95,21 +86,19 @@
     <script src="~/AdminLTE-3.0.4/plugins/filterizr/jquery.filterizr.min.js"></script>
     <!-- Page specific script -->
     <script>
-$(function () {
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        alwaysShowClose: true
-      });
-    });
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
 
-    $('.filter-container').filterizr({gutterPixels: 3});
-    $('.btn[data-filter]').on('click', function() {
-      $('.btn[data-filter]').removeClass('active');
-      $(this).addClass('active');
-    });
-  })</script>
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
+        })</script>
 </body>
 </html>
-<img src="~/AdminLTE-3.0.4/images/indir (1).jpeg" />
-<img src="~/AdminLTE-3.0.4/images/indir.jpeg" />

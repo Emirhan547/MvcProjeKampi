@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Controllers\WriterPanelContentController.cs" />
@@ -2371,7 +2372,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\GetCategoryList.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminCategory\index.cshtml" />
@@ -2387,7 +2387,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\About\AboutPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <Content Include="Views\Contact\GetContactDeatails.cshtml" />
+    <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Contact\MessageListMenu.cshtml" />
     <Content Include="Views\Message\Inbox.cshtml" />
     <Content Include="Views\Message\Sendbox.cshtml" />
@@ -2405,8 +2405,8 @@
     <Content Include="Views\WriterPanelMessage\Inbox.cshtml" />
     <Content Include="Views\WriterPanelMessage\MessageListMenu.cshtml" />
     <Content Include="Views\WriterPanelMessage\Sendbox.cshtml" />
-    <Content Include="Views\WriterPanelMessage\GetInboxMessageDeatails.cshtml" />
-    <Content Include="Views\WriterPanelMessage\GetSendboxMessageDeatails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetInboxMessageDetails.cshtml" />
+    <Content Include="Views\WriterPanelMessage\GetSendboxMessageDetails.cshtml" />
     <Content Include="Views\WriterPanelMessage\NewMessage.cshtml" />
     <Content Include="Views\WriterPanelContent\MyContent.cshtml" />
     <Content Include="Views\Login\WriterLogin.cshtml" />
@@ -2414,20 +2414,23 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\WriterPanel\AllHeading.cshtml" />
     <Content Include="Views\WriterPanelContent\AddContent.cshtml" />
-    <Content Include="Views\WriterPanelContent\ToDoList.cshtml" />
-    <Content Include="Views\Test\Test1.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Content\GetAllContent.cshtml" />
     <Content Include="Views\Heading\HeadingReport.cshtml" />
-    <Content Include="Views\Test\SweetAlert.cshtml" />
     <Content Include="Views\Authorization\Index.cshtml" />
     <Content Include="Views\Authorization\AddAdmin.cshtml" />
     <Content Include="Views\Authorization\EditAdmin.cshtml" />
+    <Content Include="Views\Talent\Index.cshtml" />
+    <Content Include="Views\Login\RegisterWriter.cshtml" />
+    <Content Include="Views\WriterPanel\ContentByHeading.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Draft.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Spam.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Trash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\AboutController\" />
+    <Folder Include="Views\Chart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

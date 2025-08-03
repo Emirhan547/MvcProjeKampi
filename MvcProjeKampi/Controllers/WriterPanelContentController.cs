@@ -18,7 +18,7 @@ namespace MvcProjeKampi.Controllers
 
         public ActionResult MyContent(string p)
         {
-            Context c = new Context();
+            
             p = (string)Session["WriterMail"];
             var writeridinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
 
@@ -42,9 +42,6 @@ namespace MvcProjeKampi.Controllers
             cm.ContentAdd(p);
             return RedirectToAction("MyContent");
         }
-        public ActionResult ToDoList()
-        {
-            return View();
-        }
+        
     }
 }

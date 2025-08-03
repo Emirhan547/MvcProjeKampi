@@ -14,8 +14,8 @@ namespace MvcProjeKampi.Controllers
         ImageFileManager ifm = new ImageFileManager(new EfImageFileDal());
         public ActionResult Index()
         {
-            var files = ifm.GetList();
-            return View();
+            var values = ifm.GetList();
+            return View(values);
         }
     }
 }

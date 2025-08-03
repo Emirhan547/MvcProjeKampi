@@ -1,0 +1,27 @@
+﻿@model List<EntityLayer.Concrete.Content>
+@{
+    ViewBag.Title = "Başlıktaki Yazılar";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h3 class="mb-4">"@ViewBag.HeadingName" başlığına ait tüm yazılar</h3>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Yazar</th>
+            <th>İçerik</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Writer.WriterName @item.Writer.WriterSurname</td>
+                <td>@item.ContentValue</td>
+                <td>@item.ContentDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

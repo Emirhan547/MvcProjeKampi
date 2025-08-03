@@ -53,9 +53,13 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     @Html.Label("Alıcı Adı")
-                                    @Html.TextBoxFor(x => x.ReceiverMail, new { @class = "form-control" })
+                                    @Html.DropDownListFor(x => x.ReceiverMail, (IEnumerable<SelectListItem>)ViewBag.WriterList, "Alıcı Seçin", new { @class = "form-control" })
                                     @Html.ValidationMessageFor(x => x.ReceiverMail)
+
+
+
                                     <br /><br />
+
                                 </div>
                                 <div class="form-group">
                                     @Html.Label("Konu")
@@ -64,18 +68,8 @@
                                 </div>
                                 <div class="form-group">
                                     @Html.Label("Mesajınız")
-                                    <textarea id="compose-textarea" name="MessageContent" style="height: 300px">
-                                
-                  
-                                    <ul>
-                                    <li>List item one</li>
-                                    <li>List item two</li>
-                                    <li>List item three</li>
-                                    <li>List item four</li>
-                      </ul>
-                                    <p>Thank you,</p>
-                                    <p>John Doe</p>
-                    </textarea>
+                                    @Html.TextAreaFor(x => x.MessageContent, new { @class = "form-control", @id = "compose-textarea" })
+
                                 </div>
                                 <div class="form-group">
                                     <div class="btn btn-default btn-file">
@@ -88,11 +82,20 @@
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet</button>
-                                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                                    <button type="submit" name="draft" value="true" class="btn btn-default">
+                                        <i class="fas fa-pencil-alt"></i> Taslaklara Kaydet
+                                    </button>
+
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="far fa-envelope"></i> Gönder
+                                    </button>
                                 </div>
-                                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i>İptal Et </button>
+
+                                <button type="reset" class="btn btn-default">
+                                    <i class="fas fa-times"></i> İptal Et
+                                </button>
                             </div>
+
                             <!-- /.card-footer -->
                         </div>
                     }
@@ -109,7 +112,7 @@
     <!-- /.control-sidebar -->
     <!-- ./wrapper -->
     <!-- jQuery -->
-    @*@<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>*@
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->

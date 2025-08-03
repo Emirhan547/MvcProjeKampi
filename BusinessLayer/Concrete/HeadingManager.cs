@@ -30,8 +30,9 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetListByWriter(int id)
         {
-            return _headingDal.List(x => x.WriterID == id);
+            return _headingDal.List(x => x.WriterID == id && x.HeadingStatus == true);
         }
+
 
         public void HeadingAdd(Heading heading)
         {
@@ -40,9 +41,17 @@ namespace BusinessLayer.Concrete
 
         public void HeadingDelete(Heading heading)
         {
-            
+
+            if (heading.HeadingStatus == true)
+            {
+                heading.HeadingStatus = false;
+            }
+            else
+            {
+                heading.HeadingStatus = true;
+            }
             _headingDal.Update(heading);
- 
+
         }
 
         public void HeadingUpdate(Heading heading)

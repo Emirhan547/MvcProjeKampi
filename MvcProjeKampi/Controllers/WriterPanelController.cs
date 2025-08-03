@@ -21,11 +21,11 @@ namespace MvcProjeKampi.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
-       
+        ContentManager contentmanager = new ContentManager(new EfContentDal());
         Context c = new Context();
 
         [HttpGet]
-        public ActionResult WriterProfile(int id = 0)
+        public ActionResult WriterProfile(int id=0 )
         {
             string p = (string)Session["WriterMail"];
             id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
@@ -40,7 +40,7 @@ namespace MvcProjeKampi.Controllers
             if (result.IsValid)
             {
                 wm.WriterUpdate(p);
-                return RedirectToAction("AllHeading","WriterPanel");
+                return RedirectToAction("AllHeading");
             }
             else
             {
@@ -69,6 +69,7 @@ namespace MvcProjeKampi.Controllers
                                                   select new SelectListItem
                                                   {
                                                       Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
                                                   }).ToList();
             ViewBag.vlc = valuecategory;
             return View();
@@ -108,18 +109,25 @@ namespace MvcProjeKampi.Controllers
             hm.HeadingUpdate(p);
             return RedirectToAction("MyHeading");
         }
+        
         public ActionResult DeleteHeading(int id)
         {
             var HeadingValue = hm.GetById(id);
-            HeadingValue.HeadingStatus = false;
             hm.HeadingDelete(HeadingValue);
             return RedirectToAction("MyHeading");
         }
         public ActionResult AllHeading(int p = 1 )
         {
-            var heading =hm.GetList().ToPagedList(p,10);
+            var heading =hm.GetList().ToPagedList(p,5);
             return View(heading);
         }
+        public ActionResult ContentByHeading(int id)
+        {
+            var contents = contentmanager.GetListByHeadingID(id);
+            ViewBag.HeadingName = hm.GetById(id).HeadingName; // düzeltildi
+            return View(contents);
+        }
+
     }
-    
+
 }

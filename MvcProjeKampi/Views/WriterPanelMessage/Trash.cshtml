@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+@{
+    ViewBag.Title = "Çöp Kutusu";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Çöp Kutusu</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        @Html.Action("MessageListMenu", "WriterPanelMessage")
+
+        <div class="col-md-9">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Silinmiş Mesajlar</h3>
+                </div>
+
+                <div class="card-body p-0">
+                    <div class="table-responsive mailbox-messages">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="mailbox-name">@item.SenderMail</td>
+                                        <td class="mailbox-subject">
+                                            <b>@item.Subject</b> - @item.MessageContent.Substring(0, 30)...
+                                        </td>
+                                        <td class="mailbox-date">
+                                            @(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -30,7 +30,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            @Html.Action("MessageListMenu", "WritePanelMessage")
+            @Html.Action("MessageListMenu", "WriterPanelMessage")
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
@@ -84,15 +84,32 @@
                                                     <label for="check1"></label>
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/WriterPanelMessage/GetInboxMessageDetails/@item.MessageID"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/WriterPanelMessage/GetInboxMessageDetails/@item.MessageID@item.MessageID">@item.SenderMail</a></td>
+                                            <td class="mailbox-star">
+                                                <a href="/WriterPanelMessage/GetInboxMessageDetails/@item.MessageID">
+                                                    <i class="fas fa-star text-warning"></i>
+                                                </a>
+                                            </td>
+                                            <td class="mailbox-name">
+                                                <a href="/WriterPanelMessage/GetInboxMessageDetails/@item.MessageID">@item.SenderMail</a>
+                                            </td>
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b> - @item.MessageContent.Substring(0, 30)...
                                             </td>
-                                            <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+                                            <td>
+                                                <a href="/WriterPanelMessage/MoveToTrash/@item.MessageID" title="Çöp Kutusuna Taşı">
+                                                    <i class="fas fa-trash text-danger"></i>
+                                                </a>
+                                                &nbsp;
+                                                <a href="/WriterPanelMessage/MoveToSpam/@item.MessageID" title="Spam'a Taşı">
+                                                    <i class="fas fa-exclamation-circle text-warning"></i>
+                                                </a>
+                                            </td>
+                                            <td class="mailbox-date">
+                                                @(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))
+                                            </td>
                                         </tr>
                                     }
+
                                 </tbody>
                             </table>
                             <!-- /.table -->
@@ -120,7 +137,7 @@
                                     <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
                                 </div>
                                 <!-- /.btn-group -->
-                            </div>
+                            </div>atesabi
                             <!-- /.float-right -->
                         </div>
                     </div>

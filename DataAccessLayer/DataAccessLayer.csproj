@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202507121935476_mig1.cs" />
     <Compile Include="Migrations\202507121935476_mig1.Designer.cs">
@@ -118,6 +120,42 @@
     <Compile Include="Migrations\202507251836286_mig_admin_table.cs" />
     <Compile Include="Migrations\202507251836286_mig_admin_table.Designer.cs">
       <DependentUpon>202507251836286_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507291613393_talentadd.cs" />
+    <Compile Include="Migrations\202507291613393_talentadd.Designer.cs">
+      <DependentUpon>202507291613393_talentadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508011802191_AddWriterImage.cs" />
+    <Compile Include="Migrations\202508011802191_AddWriterImage.Designer.cs">
+      <DependentUpon>202508011802191_AddWriterImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508011934424_removecategorydescription.cs" />
+    <Compile Include="Migrations\202508011934424_removecategorydescription.Designer.cs">
+      <DependentUpon>202508011934424_removecategorydescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508012130295_headingnamelenghtedit.cs" />
+    <Compile Include="Migrations\202508012130295_headingnamelenghtedit.Designer.cs">
+      <DependentUpon>202508012130295_headingnamelenghtedit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508021034061_messageedit.cs" />
+    <Compile Include="Migrations\202508021034061_messageedit.Designer.cs">
+      <DependentUpon>202508021034061_messageedit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508021839141_addcontactproperty.cs" />
+    <Compile Include="Migrations\202508021839141_addcontactproperty.Designer.cs">
+      <DependentUpon>202508021839141_addcontactproperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508021845171_editcontact.cs" />
+    <Compile Include="Migrations\202508021845171_editcontact.Designer.cs">
+      <DependentUpon>202508021845171_editcontact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508031452463_deletecontactprop.cs" />
+    <Compile Include="Migrations\202508031452463_deletecontactprop.Designer.cs">
+      <DependentUpon>202508031452463_deletecontactprop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202508031459475_editcontact1.cs" />
+    <Compile Include="Migrations\202508031459475_editcontact1.Designer.cs">
+      <DependentUpon>202508031459475_editcontact1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,6 +209,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507251836286_mig_admin_table.resx">
       <DependentUpon>202507251836286_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507291613393_talentadd.resx">
+      <DependentUpon>202507291613393_talentadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508011802191_AddWriterImage.resx">
+      <DependentUpon>202508011802191_AddWriterImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508011934424_removecategorydescription.resx">
+      <DependentUpon>202508011934424_removecategorydescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508012130295_headingnamelenghtedit.resx">
+      <DependentUpon>202508012130295_headingnamelenghtedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508021034061_messageedit.resx">
+      <DependentUpon>202508021034061_messageedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508021839141_addcontactproperty.resx">
+      <DependentUpon>202508021839141_addcontactproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508021845171_editcontact.resx">
+      <DependentUpon>202508021845171_editcontact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508031452463_deletecontactprop.resx">
+      <DependentUpon>202508031452463_deletecontactprop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202508031459475_editcontact1.resx">
+      <DependentUpon>202508031459475_editcontact1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

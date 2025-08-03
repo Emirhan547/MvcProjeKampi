@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IRepository<T>
+    public interface IRepository <T>
     {
    List<T> List();
         void Insert(T p);

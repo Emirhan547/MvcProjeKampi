@@ -7,10 +7,6 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-@{ string color = ""; }
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -66,24 +62,6 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            if (item.Category.CategoryName == "Tiyatro")
-                            {
-                                color = "badge badge-warning";
-                            }
-                            if (item.Category.CategoryName == "Spor")
-                            {
-                                color = "badge badge-success";
-                            }
-                            if (item.Category.CategoryName == "Yazılım")
-                            {
-                                color = "badge badge-info";
-                            }
-                            if (item.Category.CategoryName == "Seyahat")
-                            {
-                                color = "badge badge-secondary";
-                            }
-
-
                             <tr>
                                 <td>
                                     @item.HeadingID
@@ -102,11 +80,15 @@
                                         <li class="list-inline-item">
                                             <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
                                         </li>
+                                        <li class="list-inline-item">
+                                            @item.Writer.WriterName @item.Writer.WriterSurname
+                                        </li>
                                     </ul>
                                 </td>
 
+
                                 <td class="project-state">
-                                    <span class="@color">@item.Category.CategoryName</span>
+                                    <span class="badge badge-success">@item.Category.CategoryName</span>
                                 </td>
                                 <td class="project-actions text-right">
                                     <a class="btn btn-primary btn-sm" href="/Default/Headings/@item.HeadingID">
@@ -118,7 +100,7 @@
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Bu Başlığa Yaz
-                                    </a>         
+                                    </a>
                                 </td>
                             </tr>
                         }

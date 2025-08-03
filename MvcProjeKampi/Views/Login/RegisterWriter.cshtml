@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.Writer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Yazar Kayıt</title>
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-20/style.css" />
+</head>
+<body class="img js-fullheight" style="background-image: url(/AdminLTE-3.0.4/login-20/bg.jpg);">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <h3 class="text-white text-center mb-4">Yazar Kayıt Formu</h3>
+                @using (Html.BeginForm("RegisterWriter", "Login", FormMethod.Post))
+                {
+                    
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control", placeholder = "İsim" })
+                        
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control", placeholder = "Soyisim" })
+                        
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", placeholder = "Mail" })
+                        
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control", placeholder = "Şifre" })
+                        
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-success">Kayıt Ol</button>
+                    </div>
+                }
+                <div class="text-center">
+                    <a href="/Login/WriterLogin" class="text-light">Zaten hesabın var mı? Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

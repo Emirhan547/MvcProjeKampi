@@ -17,11 +17,13 @@
                     @Html.Label("Tarih")
                     @Html.TextBoxFor(x => x.HeadingDate, new { @class = "form-control" })
                     <br />
-                    @Html.Label("Yazar ID")
+                    @Html.Label("Yazar Adı")
                     @Html.TextBoxFor(x => x.WriterID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.WriterID)
                     <br />
                     @Html.Label("Kategori")
                     @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.CategoryId)
                     <br />
                     <button class="btn btn-success">Güncelle</button>
                 </div>

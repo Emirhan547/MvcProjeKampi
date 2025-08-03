@@ -1,19 +1,15 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.EnterpriseServices.Internal;
+using FluentValidation.Results;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
 namespace MvcProjeKampi.Controllers
 {
-
     [AllowAnonymous]
     public class LoginController : Controller
     {
@@ -41,7 +37,7 @@ namespace MvcProjeKampi.Controllers
             {
                 return RedirectToAction("Index");
             }
-                
+
         }
         [HttpGet]
         public ActionResult WriterLogin()
@@ -51,22 +47,44 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer p)
         {
-           // Context c = new Context();
-            //var writeuserinfo = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail && x.WriterPassword == p.WriterPassword);
             var writeruserinfo = wm.GetWriter(p.WriterMail, p.WriterPassword);
             if (writeruserinfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writeruserinfo.WriterMail, false);
-                Session["AdminUserName"] = writeruserinfo.WriterMail;
-                return RedirectToAction("Index", "AdminCategory");
-
+                Session["WriterMail"] = writeruserinfo.WriterMail;
+                return RedirectToAction("MyContent", "WriterPanelContent");
             }
             else
             {
+                ModelState.AddModelError("", "Geçersiz kullanıcı adı veya şifre.");
+                return View();
+            }
+        }
+
+        // GET: Normal View olarak kayıt sayfası
+        [HttpGet]
+        public ActionResult RegisterWriter()
+        {
+            return View();
+        }
+
+        // POST: Normal View olarak kayıt işlemi
+        [HttpPost]
+        public ActionResult RegisterWriter(Writer p)
+        {
+            if (ModelState.IsValid) // Bunu bile kaldırabiliriz ama önce bırakabiliriz
+            {
+                wm.RegisterWriter(p);
                 return RedirectToAction("WriterLogin");
             }
-          
+
+            return View(p);
         }
+
+
+
+
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
@@ -74,4 +92,5 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("Headings", "Default");
         }
     }
+
 }
