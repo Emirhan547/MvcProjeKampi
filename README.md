@@ -39,6 +39,8 @@ Bu proje, MVC mimarisini öğrenmek ve gerçek bir uygulama geliştirirken karş
 
 ![Mesajlar](https://github.com/user-attachments/assets/e4bee751-1042-42c6-be13-42488bc54384)
 
-![Sidebar](https://github.com/user-attachments/assets/7fc6f1a5-180c-4ae0-9c46-255150158055)
+![Yazar Kayıt Formu](https://github.com/user-attachments/assets/e7ee22a8-2363-4d96-a29e-39065e4b1d1a)
+
+![Başlığa Göre Yazılar](https://github.com/user-attachments/assets/7fc6f1a5-180c-4ae0-9c46-255150158055)
 
 ![Kayıt Formu](https://github.com/user-attachments/assets/f72fc68a-ec7a-4fd7-804e-2e805f909470)
